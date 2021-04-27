@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 
 
 class File(Resource):
-    image_path = "D://file"
+    image_path = "./"
     extensions = {"png", "jpg"}
 
     def get(self):
