@@ -11,7 +11,6 @@ class File(Resource):
 
     def get(self):
         uuid = request.args.get("uuid")
-        print(uuid)
         return send_from_directory(directory=File.image_path, filename=uuid)
 
     def post(self):
