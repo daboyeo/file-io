@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 
 
 class File(Resource):
-    image_path = "D://file"
+    image_path = "./"
     extensions = {"png", "jpg"}
 
     def get(self):
@@ -25,4 +25,4 @@ class File(Resource):
             return {'message': 'unsupported extension name'}, 400
 
         file.save(os.path.join(File.image_path, uuid+file_name))
-        return {'file_uuid': uuid}, 201
+        return {'file_uuid': uuid+file_name}, 201

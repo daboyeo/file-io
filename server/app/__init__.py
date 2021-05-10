@@ -1,5 +1,11 @@
 from flask import Flask
 
+from server.app import extension
+
+
+def register_extension(app: Flask):
+    extension.cors.init_app(app)
+
 
 def register_blueprint(app: Flask):
     from server.app.view import file_blueprint
@@ -8,5 +14,6 @@ def register_blueprint(app: Flask):
 
 def create_app():
     app = Flask("file-io")
+    register_extension(app)
     register_blueprint(app)
     return app
